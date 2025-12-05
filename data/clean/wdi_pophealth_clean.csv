@@ -1,1 +1,280 @@
-country_name,country_code,indicator_name,indicator_code,year,value
+country_name,country_code,indicator_name,indicator_code,value,year
+China,CHN,"Life expectancy at birth, total (years)",SP.DYN.LE00.IN,69.492,1993
+China,CHN,"Mortality rate, under-5 (per 1,000 live births)",SH.DYN.MORT,50.8,1993
+China,CHN,"Adolescent fertility rate (births per 1,000 women ages 15-19)",SP.ADO.TFRT,13.469,1993
+Japan,JPN,"Life expectancy at birth, total (years)",SP.DYN.LE00.IN,79.3036585365854,1993
+Japan,JPN,"Mortality rate, under-5 (per 1,000 live births)",SH.DYN.MORT,6.0,1993
+Japan,JPN,"Adolescent fertility rate (births per 1,000 women ages 15-19)",SP.ADO.TFRT,4.101,1993
+India,IND,"Life expectancy at birth, total (years)",SP.DYN.LE00.IN,59.823,1993
+India,IND,"Mortality rate, under-5 (per 1,000 live births)",SH.DYN.MORT,116.1,1993
+India,IND,"Adolescent fertility rate (births per 1,000 women ages 15-19)",SP.ADO.TFRT,135.353,1993
+China,CHN,"Life expectancy at birth, total (years)",SP.DYN.LE00.IN,69.835,1994
+China,CHN,"Mortality rate, under-5 (per 1,000 live births)",SH.DYN.MORT,49.3,1994
+China,CHN,"Adolescent fertility rate (births per 1,000 women ages 15-19)",SP.ADO.TFRT,8.754,1994
+Japan,JPN,"Life expectancy at birth, total (years)",SP.DYN.LE00.IN,79.6968292682927,1994
+Japan,JPN,"Mortality rate, under-5 (per 1,000 live births)",SH.DYN.MORT,5.9,1994
+Japan,JPN,"Adolescent fertility rate (births per 1,000 women ages 15-19)",SP.ADO.TFRT,4.146,1994
+India,IND,"Life expectancy at birth, total (years)",SP.DYN.LE00.IN,60.237,1994
+India,IND,"Mortality rate, under-5 (per 1,000 live births)",SH.DYN.MORT,112.8,1994
+India,IND,"Adolescent fertility rate (births per 1,000 women ages 15-19)",SP.ADO.TFRT,136.001,1994
+China,CHN,"Life expectancy at birth, total (years)",SP.DYN.LE00.IN,70.363,1995
+China,CHN,"Mortality rate, under-5 (per 1,000 live births)",SH.DYN.MORT,47.5,1995
+China,CHN,"Adolescent fertility rate (births per 1,000 women ages 15-19)",SP.ADO.TFRT,8.652,1995
+Japan,JPN,"Life expectancy at birth, total (years)",SP.DYN.LE00.IN,79.5360975609756,1995
+Japan,JPN,"Mortality rate, under-5 (per 1,000 live births)",SH.DYN.MORT,5.7,1995
+Japan,JPN,"Adolescent fertility rate (births per 1,000 women ages 15-19)",SP.ADO.TFRT,4.049,1995
+India,IND,"Life expectancy at birth, total (years)",SP.DYN.LE00.IN,60.63,1995
+India,IND,"Mortality rate, under-5 (per 1,000 live births)",SH.DYN.MORT,109.5,1995
+India,IND,"Adolescent fertility rate (births per 1,000 women ages 15-19)",SP.ADO.TFRT,134.75,1995
+China,CHN,"Life expectancy at birth, total (years)",SP.DYN.LE00.IN,70.823,1996
+China,CHN,"Mortality rate, under-5 (per 1,000 live births)",SH.DYN.MORT,45.6,1996
+China,CHN,"Adolescent fertility rate (births per 1,000 women ages 15-19)",SP.ADO.TFRT,7.318,1996
+Japan,JPN,"Life expectancy at birth, total (years)",SP.DYN.LE00.IN,80.219756097561,1996
+Japan,JPN,"Mortality rate, under-5 (per 1,000 live births)",SH.DYN.MORT,5.5,1996
+Japan,JPN,"Adolescent fertility rate (births per 1,000 women ages 15-19)",SP.ADO.TFRT,4.12,1996
+India,IND,"Life expectancy at birth, total (years)",SP.DYN.LE00.IN,61.027,1996
+India,IND,"Mortality rate, under-5 (per 1,000 live births)",SH.DYN.MORT,106.0,1996
+India,IND,"Adolescent fertility rate (births per 1,000 women ages 15-19)",SP.ADO.TFRT,126.782,1996
+China,CHN,"Life expectancy at birth, total (years)",SP.DYN.LE00.IN,71.227,1997
+China,CHN,"Mortality rate, under-5 (per 1,000 live births)",SH.DYN.MORT,43.6,1997
+China,CHN,"Adolescent fertility rate (births per 1,000 women ages 15-19)",SP.ADO.TFRT,6.427,1997
+Japan,JPN,"Life expectancy at birth, total (years)",SP.DYN.LE00.IN,80.4241463414634,1997
+Japan,JPN,"Mortality rate, under-5 (per 1,000 live births)",SH.DYN.MORT,5.2,1997
+Japan,JPN,"Adolescent fertility rate (births per 1,000 women ages 15-19)",SP.ADO.TFRT,4.459,1997
+India,IND,"Life expectancy at birth, total (years)",SP.DYN.LE00.IN,61.439,1997
+India,IND,"Mortality rate, under-5 (per 1,000 live births)",SH.DYN.MORT,102.5,1997
+India,IND,"Adolescent fertility rate (births per 1,000 women ages 15-19)",SP.ADO.TFRT,122.581,1997
+China,CHN,"Life expectancy at birth, total (years)",SP.DYN.LE00.IN,71.601,1998
+China,CHN,"Mortality rate, under-5 (per 1,000 live births)",SH.DYN.MORT,41.4,1998
+China,CHN,"Adolescent fertility rate (births per 1,000 women ages 15-19)",SP.ADO.TFRT,4.673,1998
+Japan,JPN,"Life expectancy at birth, total (years)",SP.DYN.LE00.IN,80.5014634146342,1998
+Japan,JPN,"Mortality rate, under-5 (per 1,000 live births)",SH.DYN.MORT,5.0,1998
+Japan,JPN,"Adolescent fertility rate (births per 1,000 women ages 15-19)",SP.ADO.TFRT,4.802,1998
+India,IND,"Life expectancy at birth, total (years)",SP.DYN.LE00.IN,61.852,1998
+India,IND,"Mortality rate, under-5 (per 1,000 live births)",SH.DYN.MORT,98.9,1998
+India,IND,"Adolescent fertility rate (births per 1,000 women ages 15-19)",SP.ADO.TFRT,122.611,1998
+China,CHN,"Life expectancy at birth, total (years)",SP.DYN.LE00.IN,71.952,1999
+China,CHN,"Mortality rate, under-5 (per 1,000 live births)",SH.DYN.MORT,39.1,1999
+China,CHN,"Adolescent fertility rate (births per 1,000 women ages 15-19)",SP.ADO.TFRT,6.163,1999
+Japan,JPN,"Life expectancy at birth, total (years)",SP.DYN.LE00.IN,80.4609756097561,1999
+Japan,JPN,"Mortality rate, under-5 (per 1,000 live births)",SH.DYN.MORT,4.7,1999
+Japan,JPN,"Adolescent fertility rate (births per 1,000 women ages 15-19)",SP.ADO.TFRT,5.08,1999
+India,IND,"Life expectancy at birth, total (years)",SP.DYN.LE00.IN,62.284,1999
+India,IND,"Mortality rate, under-5 (per 1,000 live births)",SH.DYN.MORT,95.3,1999
+India,IND,"Adolescent fertility rate (births per 1,000 women ages 15-19)",SP.ADO.TFRT,116.902,1999
+China,CHN,"Life expectancy at birth, total (years)",SP.DYN.LE00.IN,72.288,2000
+China,CHN,"Mortality rate, under-5 (per 1,000 live births)",SH.DYN.MORT,36.7,2000
+China,CHN,"Adolescent fertility rate (births per 1,000 women ages 15-19)",SP.ADO.TFRT,6.444,2000
+Japan,JPN,"Life expectancy at birth, total (years)",SP.DYN.LE00.IN,81.0760975609756,2000
+Japan,JPN,"Mortality rate, under-5 (per 1,000 live births)",SH.DYN.MORT,4.5,2000
+Japan,JPN,"Adolescent fertility rate (births per 1,000 women ages 15-19)",SP.ADO.TFRT,5.532,2000
+India,IND,"Life expectancy at birth, total (years)",SP.DYN.LE00.IN,62.749,2000
+India,IND,"Mortality rate, under-5 (per 1,000 live births)",SH.DYN.MORT,91.6,2000
+India,IND,"Adolescent fertility rate (births per 1,000 women ages 15-19)",SP.ADO.TFRT,114.352,2000
+China,CHN,"Life expectancy at birth, total (years)",SP.DYN.LE00.IN,72.675,2001
+China,CHN,"Mortality rate, under-5 (per 1,000 live births)",SH.DYN.MORT,34.2,2001
+China,CHN,"Adolescent fertility rate (births per 1,000 women ages 15-19)",SP.ADO.TFRT,6.104,2001
+Japan,JPN,"Life expectancy at birth, total (years)",SP.DYN.LE00.IN,81.4163414634146,2001
+Japan,JPN,"Mortality rate, under-5 (per 1,000 live births)",SH.DYN.MORT,4.3,2001
+Japan,JPN,"Adolescent fertility rate (births per 1,000 women ages 15-19)",SP.ADO.TFRT,5.972,2001
+India,IND,"Life expectancy at birth, total (years)",SP.DYN.LE00.IN,63.158,2001
+India,IND,"Mortality rate, under-5 (per 1,000 live births)",SH.DYN.MORT,88.0,2001
+India,IND,"Adolescent fertility rate (births per 1,000 women ages 15-19)",SP.ADO.TFRT,112.043,2001
+China,CHN,"Life expectancy at birth, total (years)",SP.DYN.LE00.IN,73.034,2002
+China,CHN,"Mortality rate, under-5 (per 1,000 live births)",SH.DYN.MORT,31.5,2002
+China,CHN,"Adolescent fertility rate (births per 1,000 women ages 15-19)",SP.ADO.TFRT,6.122,2002
+Japan,JPN,"Life expectancy at birth, total (years)",SP.DYN.LE00.IN,81.6907317073171,2002
+Japan,JPN,"Mortality rate, under-5 (per 1,000 live births)",SH.DYN.MORT,4.1,2002
+Japan,JPN,"Adolescent fertility rate (births per 1,000 women ages 15-19)",SP.ADO.TFRT,6.225,2002
+India,IND,"Life expectancy at birth, total (years)",SP.DYN.LE00.IN,63.649,2002
+India,IND,"Mortality rate, under-5 (per 1,000 live births)",SH.DYN.MORT,84.5,2002
+India,IND,"Adolescent fertility rate (births per 1,000 women ages 15-19)",SP.ADO.TFRT,105.119,2002
+China,CHN,"Life expectancy at birth, total (years)",SP.DYN.LE00.IN,73.385,2003
+China,CHN,"Mortality rate, under-5 (per 1,000 live births)",SH.DYN.MORT,28.9,2003
+China,CHN,"Adolescent fertility rate (births per 1,000 women ages 15-19)",SP.ADO.TFRT,6.459,2003
+Japan,JPN,"Life expectancy at birth, total (years)",SP.DYN.LE00.IN,81.76,2003
+Japan,JPN,"Mortality rate, under-5 (per 1,000 live births)",SH.DYN.MORT,4.0,2003
+Japan,JPN,"Adolescent fertility rate (births per 1,000 women ages 15-19)",SP.ADO.TFRT,5.982,2003
+India,IND,"Life expectancy at birth, total (years)",SP.DYN.LE00.IN,64.086,2003
+India,IND,"Mortality rate, under-5 (per 1,000 live births)",SH.DYN.MORT,81.1,2003
+India,IND,"Adolescent fertility rate (births per 1,000 women ages 15-19)",SP.ADO.TFRT,97.366,2003
+China,CHN,"Life expectancy at birth, total (years)",SP.DYN.LE00.IN,73.727,2004
+China,CHN,"Mortality rate, under-5 (per 1,000 live births)",SH.DYN.MORT,26.4,2004
+China,CHN,"Adolescent fertility rate (births per 1,000 women ages 15-19)",SP.ADO.TFRT,5.638,2004
+Japan,JPN,"Life expectancy at birth, total (years)",SP.DYN.LE00.IN,82.030243902439,2004
+Japan,JPN,"Mortality rate, under-5 (per 1,000 live births)",SH.DYN.MORT,3.9,2004
+Japan,JPN,"Adolescent fertility rate (births per 1,000 women ages 15-19)",SP.ADO.TFRT,5.775,2004
+India,IND,"Life expectancy at birth, total (years)",SP.DYN.LE00.IN,64.484,2004
+India,IND,"Mortality rate, under-5 (per 1,000 live births)",SH.DYN.MORT,77.7,2004
+India,IND,"Adolescent fertility rate (births per 1,000 women ages 15-19)",SP.ADO.TFRT,83.5,2004
+China,CHN,"Life expectancy at birth, total (years)",SP.DYN.LE00.IN,74.085,2005
+China,CHN,"Mortality rate, under-5 (per 1,000 live births)",SH.DYN.MORT,24.0,2005
+China,CHN,"Adolescent fertility rate (births per 1,000 women ages 15-19)",SP.ADO.TFRT,6.645,2005
+Japan,JPN,"Life expectancy at birth, total (years)",SP.DYN.LE00.IN,81.9551219512195,2005
+Japan,JPN,"Mortality rate, under-5 (per 1,000 live births)",SH.DYN.MORT,3.7,2005
+Japan,JPN,"Adolescent fertility rate (births per 1,000 women ages 15-19)",SP.ADO.TFRT,5.367,2005
+India,IND,"Life expectancy at birth, total (years)",SP.DYN.LE00.IN,64.939,2005
+India,IND,"Mortality rate, under-5 (per 1,000 live births)",SH.DYN.MORT,74.4,2005
+India,IND,"Adolescent fertility rate (births per 1,000 women ages 15-19)",SP.ADO.TFRT,64.678,2005
+China,CHN,"Life expectancy at birth, total (years)",SP.DYN.LE00.IN,74.404,2006
+China,CHN,"Mortality rate, under-5 (per 1,000 live births)",SH.DYN.MORT,21.9,2006
+China,CHN,"Adolescent fertility rate (births per 1,000 women ages 15-19)",SP.ADO.TFRT,8.5,2006
+Japan,JPN,"Life expectancy at birth, total (years)",SP.DYN.LE00.IN,82.3219512195122,2006
+Japan,JPN,"Mortality rate, under-5 (per 1,000 live births)",SH.DYN.MORT,3.6,2006
+Japan,JPN,"Adolescent fertility rate (births per 1,000 women ages 15-19)",SP.ADO.TFRT,5.246,2006
+India,IND,"Life expectancy at birth, total (years)",SP.DYN.LE00.IN,65.373,2006
+India,IND,"Mortality rate, under-5 (per 1,000 live births)",SH.DYN.MORT,71.1,2006
+India,IND,"Adolescent fertility rate (births per 1,000 women ages 15-19)",SP.ADO.TFRT,55.76,2006
+China,CHN,"Life expectancy at birth, total (years)",SP.DYN.LE00.IN,74.789,2007
+China,CHN,"Mortality rate, under-5 (per 1,000 live births)",SH.DYN.MORT,20.1,2007
+China,CHN,"Adolescent fertility rate (births per 1,000 women ages 15-19)",SP.ADO.TFRT,9.141,2007
+Japan,JPN,"Life expectancy at birth, total (years)",SP.DYN.LE00.IN,82.5070731707317,2007
+Japan,JPN,"Mortality rate, under-5 (per 1,000 live births)",SH.DYN.MORT,3.5,2007
+Japan,JPN,"Adolescent fertility rate (births per 1,000 women ages 15-19)",SP.ADO.TFRT,5.145,2007
+India,IND,"Life expectancy at birth, total (years)",SP.DYN.LE00.IN,65.803,2007
+India,IND,"Mortality rate, under-5 (per 1,000 live births)",SH.DYN.MORT,67.9,2007
+India,IND,"Adolescent fertility rate (births per 1,000 women ages 15-19)",SP.ADO.TFRT,51.987,2007
+China,CHN,"Life expectancy at birth, total (years)",SP.DYN.LE00.IN,74.833,2008
+China,CHN,"Mortality rate, under-5 (per 1,000 live births)",SH.DYN.MORT,18.5,2008
+China,CHN,"Adolescent fertility rate (births per 1,000 women ages 15-19)",SP.ADO.TFRT,11.026,2008
+Japan,JPN,"Life expectancy at birth, total (years)",SP.DYN.LE00.IN,82.5875609756098,2008
+Japan,JPN,"Mortality rate, under-5 (per 1,000 live births)",SH.DYN.MORT,3.4,2008
+Japan,JPN,"Adolescent fertility rate (births per 1,000 women ages 15-19)",SP.ADO.TFRT,5.168,2008
+India,IND,"Life expectancy at birth, total (years)",SP.DYN.LE00.IN,66.247,2008
+India,IND,"Mortality rate, under-5 (per 1,000 live births)",SH.DYN.MORT,64.6,2008
+India,IND,"Adolescent fertility rate (births per 1,000 women ages 15-19)",SP.ADO.TFRT,54.289,2008
+China,CHN,"Life expectancy at birth, total (years)",SP.DYN.LE00.IN,75.317,2009
+China,CHN,"Mortality rate, under-5 (per 1,000 live births)",SH.DYN.MORT,17.1,2009
+China,CHN,"Adolescent fertility rate (births per 1,000 women ages 15-19)",SP.ADO.TFRT,11.994,2009
+Japan,JPN,"Life expectancy at birth, total (years)",SP.DYN.LE00.IN,82.9314634146342,2009
+Japan,JPN,"Mortality rate, under-5 (per 1,000 live births)",SH.DYN.MORT,3.4,2009
+Japan,JPN,"Adolescent fertility rate (births per 1,000 women ages 15-19)",SP.ADO.TFRT,4.914,2009
+India,IND,"Life expectancy at birth, total (years)",SP.DYN.LE00.IN,66.7,2009
+India,IND,"Mortality rate, under-5 (per 1,000 live births)",SH.DYN.MORT,61.4,2009
+India,IND,"Adolescent fertility rate (births per 1,000 women ages 15-19)",SP.ADO.TFRT,46.696,2009
+China,CHN,"Life expectancy at birth, total (years)",SP.DYN.LE00.IN,75.668,2010
+China,CHN,"Mortality rate, under-5 (per 1,000 live births)",SH.DYN.MORT,15.8,2010
+China,CHN,"Adolescent fertility rate (births per 1,000 women ages 15-19)",SP.ADO.TFRT,12.158,2010
+Japan,JPN,"Life expectancy at birth, total (years)",SP.DYN.LE00.IN,82.8426829268293,2010
+Japan,JPN,"Mortality rate, under-5 (per 1,000 live births)",SH.DYN.MORT,3.3,2010
+Japan,JPN,"Adolescent fertility rate (births per 1,000 women ages 15-19)",SP.ADO.TFRT,4.603,2010
+India,IND,"Life expectancy at birth, total (years)",SP.DYN.LE00.IN,67.162,2010
+India,IND,"Mortality rate, under-5 (per 1,000 live births)",SH.DYN.MORT,58.2,2010
+India,IND,"Adolescent fertility rate (births per 1,000 women ages 15-19)",SP.ADO.TFRT,41.719,2010
+China,CHN,"Life expectancy at birth, total (years)",SP.DYN.LE00.IN,75.889,2011
+China,CHN,"Mortality rate, under-5 (per 1,000 live births)",SH.DYN.MORT,14.6,2011
+China,CHN,"Adolescent fertility rate (births per 1,000 women ages 15-19)",SP.ADO.TFRT,11.801,2011
+Japan,JPN,"Life expectancy at birth, total (years)",SP.DYN.LE00.IN,82.5912195121951,2011
+Japan,JPN,"Mortality rate, under-5 (per 1,000 live births)",SH.DYN.MORT,3.3,2011
+Japan,JPN,"Adolescent fertility rate (births per 1,000 women ages 15-19)",SP.ADO.TFRT,4.477,2011
+India,IND,"Life expectancy at birth, total (years)",SP.DYN.LE00.IN,67.623,2011
+India,IND,"Mortality rate, under-5 (per 1,000 live births)",SH.DYN.MORT,55.0,2011
+India,IND,"Adolescent fertility rate (births per 1,000 women ages 15-19)",SP.ADO.TFRT,40.795,2011
+China,CHN,"Life expectancy at birth, total (years)",SP.DYN.LE00.IN,76.2,2012
+China,CHN,"Mortality rate, under-5 (per 1,000 live births)",SH.DYN.MORT,13.5,2012
+China,CHN,"Adolescent fertility rate (births per 1,000 women ages 15-19)",SP.ADO.TFRT,12.534,2012
+Japan,JPN,"Life expectancy at birth, total (years)",SP.DYN.LE00.IN,83.0960975609756,2012
+Japan,JPN,"Mortality rate, under-5 (per 1,000 live births)",SH.DYN.MORT,3.1,2012
+Japan,JPN,"Adolescent fertility rate (births per 1,000 women ages 15-19)",SP.ADO.TFRT,4.332,2012
+India,IND,"Life expectancy at birth, total (years)",SP.DYN.LE00.IN,68.076,2012
+India,IND,"Mortality rate, under-5 (per 1,000 live births)",SH.DYN.MORT,52.0,2012
+India,IND,"Adolescent fertility rate (births per 1,000 women ages 15-19)",SP.ADO.TFRT,39.533,2012
+China,CHN,"Life expectancy at birth, total (years)",SP.DYN.LE00.IN,76.452,2013
+China,CHN,"Mortality rate, under-5 (per 1,000 live births)",SH.DYN.MORT,12.5,2013
+China,CHN,"Adolescent fertility rate (births per 1,000 women ages 15-19)",SP.ADO.TFRT,11.976,2013
+Japan,JPN,"Life expectancy at birth, total (years)",SP.DYN.LE00.IN,83.3319512195122,2013
+Japan,JPN,"Mortality rate, under-5 (per 1,000 live births)",SH.DYN.MORT,3.0,2013
+Japan,JPN,"Adolescent fertility rate (births per 1,000 women ages 15-19)",SP.ADO.TFRT,4.361,2013
+India,IND,"Life expectancy at birth, total (years)",SP.DYN.LE00.IN,68.499,2013
+India,IND,"Mortality rate, under-5 (per 1,000 live births)",SH.DYN.MORT,49.1,2013
+India,IND,"Adolescent fertility rate (births per 1,000 women ages 15-19)",SP.ADO.TFRT,35.326,2013
+China,CHN,"Life expectancy at birth, total (years)",SP.DYN.LE00.IN,76.714,2014
+China,CHN,"Mortality rate, under-5 (per 1,000 live births)",SH.DYN.MORT,11.5,2014
+China,CHN,"Adolescent fertility rate (births per 1,000 women ages 15-19)",SP.ADO.TFRT,12.049,2014
+Japan,JPN,"Life expectancy at birth, total (years)",SP.DYN.LE00.IN,83.5878048780488,2014
+Japan,JPN,"Mortality rate, under-5 (per 1,000 live births)",SH.DYN.MORT,2.9,2014
+Japan,JPN,"Adolescent fertility rate (births per 1,000 women ages 15-19)",SP.ADO.TFRT,4.325,2014
+India,IND,"Life expectancy at birth, total (years)",SP.DYN.LE00.IN,68.932,2014
+India,IND,"Mortality rate, under-5 (per 1,000 live births)",SH.DYN.MORT,46.3,2014
+India,IND,"Adolescent fertility rate (births per 1,000 women ages 15-19)",SP.ADO.TFRT,28.806,2014
+China,CHN,"Life expectancy at birth, total (years)",SP.DYN.LE00.IN,76.975,2015
+China,CHN,"Mortality rate, under-5 (per 1,000 live births)",SH.DYN.MORT,10.7,2015
+China,CHN,"Adolescent fertility rate (births per 1,000 women ages 15-19)",SP.ADO.TFRT,10.887,2015
+Japan,JPN,"Life expectancy at birth, total (years)",SP.DYN.LE00.IN,83.7939024390244,2015
+Japan,JPN,"Mortality rate, under-5 (per 1,000 live births)",SH.DYN.MORT,2.8,2015
+Japan,JPN,"Adolescent fertility rate (births per 1,000 women ages 15-19)",SP.ADO.TFRT,4.04,2015
+India,IND,"Life expectancy at birth, total (years)",SP.DYN.LE00.IN,69.326,2015
+India,IND,"Mortality rate, under-5 (per 1,000 live births)",SH.DYN.MORT,43.6,2015
+India,IND,"Adolescent fertility rate (births per 1,000 women ages 15-19)",SP.ADO.TFRT,18.194,2015
+China,CHN,"Life expectancy at birth, total (years)",SP.DYN.LE00.IN,77.214,2016
+China,CHN,"Mortality rate, under-5 (per 1,000 live births)",SH.DYN.MORT,9.9,2016
+China,CHN,"Adolescent fertility rate (births per 1,000 women ages 15-19)",SP.ADO.TFRT,10.747,2016
+Japan,JPN,"Life expectancy at birth, total (years)",SP.DYN.LE00.IN,83.9848780487805,2016
+Japan,JPN,"Mortality rate, under-5 (per 1,000 live births)",SH.DYN.MORT,2.7,2016
+Japan,JPN,"Adolescent fertility rate (births per 1,000 women ages 15-19)",SP.ADO.TFRT,3.75,2016
+India,IND,"Life expectancy at birth, total (years)",SP.DYN.LE00.IN,69.709,2016
+India,IND,"Mortality rate, under-5 (per 1,000 live births)",SH.DYN.MORT,41.1,2016
+India,IND,"Adolescent fertility rate (births per 1,000 women ages 15-19)",SP.ADO.TFRT,14.535,2016
+China,CHN,"Life expectancy at birth, total (years)",SP.DYN.LE00.IN,77.235,2017
+China,CHN,"Mortality rate, under-5 (per 1,000 live births)",SH.DYN.MORT,9.2,2017
+China,CHN,"Adolescent fertility rate (births per 1,000 women ages 15-19)",SP.ADO.TFRT,10.236,2017
+Japan,JPN,"Life expectancy at birth, total (years)",SP.DYN.LE00.IN,84.099756097561,2017
+Japan,JPN,"Mortality rate, under-5 (per 1,000 live births)",SH.DYN.MORT,2.6,2017
+Japan,JPN,"Adolescent fertility rate (births per 1,000 women ages 15-19)",SP.ADO.TFRT,3.404,2017
+India,IND,"Life expectancy at birth, total (years)",SP.DYN.LE00.IN,70.068,2017
+India,IND,"Mortality rate, under-5 (per 1,000 live births)",SH.DYN.MORT,38.7,2017
+India,IND,"Adolescent fertility rate (births per 1,000 women ages 15-19)",SP.ADO.TFRT,15.166,2017
+China,CHN,"Life expectancy at birth, total (years)",SP.DYN.LE00.IN,77.709,2018
+China,CHN,"Mortality rate, under-5 (per 1,000 live births)",SH.DYN.MORT,8.6,2018
+China,CHN,"Adolescent fertility rate (births per 1,000 women ages 15-19)",SP.ADO.TFRT,8.691,2018
+Japan,JPN,"Life expectancy at birth, total (years)",SP.DYN.LE00.IN,84.2109756097561,2018
+Japan,JPN,"Mortality rate, under-5 (per 1,000 live births)",SH.DYN.MORT,2.5,2018
+Japan,JPN,"Adolescent fertility rate (births per 1,000 women ages 15-19)",SP.ADO.TFRT,3.076,2018
+India,IND,"Life expectancy at birth, total (years)",SP.DYN.LE00.IN,70.415,2018
+India,IND,"Mortality rate, under-5 (per 1,000 live births)",SH.DYN.MORT,36.4,2018
+India,IND,"Adolescent fertility rate (births per 1,000 women ages 15-19)",SP.ADO.TFRT,15.133,2018
+China,CHN,"Life expectancy at birth, total (years)",SP.DYN.LE00.IN,77.94,2019
+China,CHN,"Mortality rate, under-5 (per 1,000 live births)",SH.DYN.MORT,8.0,2019
+China,CHN,"Adolescent fertility rate (births per 1,000 women ages 15-19)",SP.ADO.TFRT,8.277,2019
+Japan,JPN,"Life expectancy at birth, total (years)",SP.DYN.LE00.IN,84.3563414634146,2019
+Japan,JPN,"Mortality rate, under-5 (per 1,000 live births)",SH.DYN.MORT,2.5,2019
+Japan,JPN,"Adolescent fertility rate (births per 1,000 women ages 15-19)",SP.ADO.TFRT,2.772,2019
+India,IND,"Life expectancy at birth, total (years)",SP.DYN.LE00.IN,70.746,2019
+India,IND,"Mortality rate, under-5 (per 1,000 live births)",SH.DYN.MORT,34.3,2019
+India,IND,"Adolescent fertility rate (births per 1,000 women ages 15-19)",SP.ADO.TFRT,14.796,2019
+China,CHN,"Life expectancy at birth, total (years)",SP.DYN.LE00.IN,78.019,2020
+China,CHN,"Mortality rate, under-5 (per 1,000 live births)",SH.DYN.MORT,7.5,2020
+China,CHN,"Adolescent fertility rate (births per 1,000 women ages 15-19)",SP.ADO.TFRT,6.737,2020
+Japan,JPN,"Life expectancy at birth, total (years)",SP.DYN.LE00.IN,84.56,2020
+Japan,JPN,"Mortality rate, under-5 (per 1,000 live births)",SH.DYN.MORT,2.4,2020
+Japan,JPN,"Adolescent fertility rate (births per 1,000 women ages 15-19)",SP.ADO.TFRT,2.503,2020
+India,IND,"Life expectancy at birth, total (years)",SP.DYN.LE00.IN,70.156,2020
+India,IND,"Mortality rate, under-5 (per 1,000 live births)",SH.DYN.MORT,32.4,2020
+India,IND,"Adolescent fertility rate (births per 1,000 women ages 15-19)",SP.ADO.TFRT,14.423,2020
+China,CHN,"Life expectancy at birth, total (years)",SP.DYN.LE00.IN,78.117,2021
+China,CHN,"Mortality rate, under-5 (per 1,000 live births)",SH.DYN.MORT,7.0,2021
+China,CHN,"Adolescent fertility rate (births per 1,000 women ages 15-19)",SP.ADO.TFRT,5.996,2021
+Japan,JPN,"Life expectancy at birth, total (years)",SP.DYN.LE00.IN,84.4456097560976,2021
+Japan,JPN,"Mortality rate, under-5 (per 1,000 live births)",SH.DYN.MORT,2.4,2021
+Japan,JPN,"Adolescent fertility rate (births per 1,000 women ages 15-19)",SP.ADO.TFRT,2.088,2021
+India,IND,"Life expectancy at birth, total (years)",SP.DYN.LE00.IN,67.282,2021
+India,IND,"Mortality rate, under-5 (per 1,000 live births)",SH.DYN.MORT,30.6,2021
+India,IND,"Adolescent fertility rate (births per 1,000 women ages 15-19)",SP.ADO.TFRT,14.289,2021
+China,CHN,"Life expectancy at birth, total (years)",SP.DYN.LE00.IN,78.202,2022
+China,CHN,"Mortality rate, under-5 (per 1,000 live births)",SH.DYN.MORT,6.6,2022
+China,CHN,"Adolescent fertility rate (births per 1,000 women ages 15-19)",SP.ADO.TFRT,5.463,2022
+Japan,JPN,"Life expectancy at birth, total (years)",SP.DYN.LE00.IN,83.9963414634146,2022
+Japan,JPN,"Mortality rate, under-5 (per 1,000 live births)",SH.DYN.MORT,2.4,2022
+Japan,JPN,"Adolescent fertility rate (births per 1,000 women ages 15-19)",SP.ADO.TFRT,1.821,2022
+India,IND,"Life expectancy at birth, total (years)",SP.DYN.LE00.IN,71.698,2022
+India,IND,"Mortality rate, under-5 (per 1,000 live births)",SH.DYN.MORT,29.1,2022
+India,IND,"Adolescent fertility rate (births per 1,000 women ages 15-19)",SP.ADO.TFRT,14.185,2022
+China,CHN,"Life expectancy at birth, total (years)",SP.DYN.LE00.IN,77.953,2023
+China,CHN,"Mortality rate, under-5 (per 1,000 live births)",SH.DYN.MORT,6.2,2023
+China,CHN,"Adolescent fertility rate (births per 1,000 women ages 15-19)",SP.ADO.TFRT,5.227,2023
+Japan,JPN,"Life expectancy at birth, total (years)",SP.DYN.LE00.IN,84.0412195121951,2023
+Japan,JPN,"Mortality rate, under-5 (per 1,000 live births)",SH.DYN.MORT,2.4,2023
+Japan,JPN,"Adolescent fertility rate (births per 1,000 women ages 15-19)",SP.ADO.TFRT,1.737,2023
+India,IND,"Life expectancy at birth, total (years)",SP.DYN.LE00.IN,72.003,2023
+India,IND,"Mortality rate, under-5 (per 1,000 live births)",SH.DYN.MORT,27.7,2023
+India,IND,"Adolescent fertility rate (births per 1,000 women ages 15-19)",SP.ADO.TFRT,14.06,2023
