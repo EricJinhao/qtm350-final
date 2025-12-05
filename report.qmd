@@ -15,8 +15,6 @@ jupyter: python3
 
 ## 1. Introduction
 
-Write your intro here. For now, a placeholder:
-
 We study whether China and India are converging toward Japan in key population health indicators between 1993 and 2023. We use World Bank World Development Indicators data on life expectancy at birth, under-5 mortality, and adolescent fertility for China, India, and Japan.
 
 ## 2. Data
@@ -65,7 +63,7 @@ erDiagram
 
 ### 2.4 Descriptive statistics
 
-```python
+```{python}
 
 import sqlite3
 import pandas as pd
@@ -89,6 +87,8 @@ conn.close()
 stats
 
 ```
+Overall, the descriptive statistics already suggest large differences in population health across the three countries. Japan has the best outcomes on all three indicators: its average under-5 mortality rate is only about 3–4 deaths per 1,000 live births and adolescent fertility averages around 4 births per 1,000 girls, while life expectancy averages more than 82 years. India sits at the other extreme, with average under-5 mortality around 67 deaths per 1,000 and adolescent fertility above 60, and life expectancy roughly 66 years. China is between the two, but clearly closer to Japan than to India: under-5 mortality and adolescent fertility are much lower than in India, and average life expectancy is about 75 years. The wide gaps between minimum and maximum values, especially for India, indicate that all three countries experienced substantial improvements over the 1993–2023 period.
+
 
 ## 3. Methods
 
@@ -97,50 +97,62 @@ In this section we describe how we assess convergence. We first plot time-series
 ## 4. Results
 ### 4.1 Time trends in indicators
 
-```python
-
+```{python}
 import matplotlib.pyplot as plt
 
 conn = sqlite3.connect("data/wdi.db")
 df = pd.read_sql_query("SELECT * FROM wdi_values;", conn)
 conn.close()
 
-# Example: life expectancy trends
-
 le = df[df["indicator_code"] == "SP.DYN.LE00.IN"]
 
 plt.figure()
 for c in ["CHN", "IND", "JPN"]:
-sub = le[le["country_code"] == c].sort_values("year")
-plt.plot(sub["year"], sub["value"], label=c)
+    sub = le[le["country_code"] == c].sort_values("year")
+    plt.plot(sub["year"], sub["value"], label=c)
 plt.xlabel("Year")
 plt.ylabel("Life expectancy at birth (years)")
 plt.title("Life expectancy over time")
 plt.legend()
 plt.show()
 
+
 ```
+The life-expectancy trends confirm and extend the patterns from the summary statistics. Japan starts the period with the highest life expectancy (around 79–80 years) and continues to increase steadily to about 84–85 years, with only a small dip around 2020 that likely reflects the COVID-19 pandemic. China begins the period roughly 10 years behind Japan but shows a strong and almost linear increase from about 69 to 78 years. India has the lowest life expectancy throughout, starting near 60 years in 1993 and rising to the low 70s by 2023, with a noticeable drop around 2020.
+
+Visually, both China and India move upward over time, but China’s trajectory is steeper and more stable. By the end of the period, China is within about 6–7 years of Japan, whereas India remains more than 10 years behind. This suggests that all three countries improved, but convergence toward Japan is much stronger for China than for India in terms of life expectancy.
 
 ### 4.2 Convergence in gaps vs Japan
 
 # Example: gap in life expectancy vs Japan
 
-le_jpn = le[le["country_code"] == "JPN"][["year", "value"]].rename(columns={"value": "LE_JPN"})
+```{python}
+# assumes 'le' was already defined in the previous chunk
+# le = df[df["indicator_code"] == "SP.DYN.LE00.IN"]
 
+# Japan series
+le_jpn = le[le["country_code"] == "JPN"][["year", "value"]].rename(
+    columns={"value": "LE_JPN"}
+)
+
+# Build gaps for CHN and IND vs JPN
 gaps = []
 for country in ["CHN", "IND"]:
-sub = le[le["country_code"] == country][["year", "value"]].rename(columns={"value": f"LE_{country}"})
-merged = sub.merge(le_jpn, on="year")
-merged["gap"] = merged[f"LE_{country}"] - merged["LE_JPN"]
-merged["country_code"] = country
-gaps.append(merged[["year", "country_code", "gap"]])
+    sub = le[le["country_code"] == country][["year", "value"]].rename(
+        columns={"value": f"LE_{country}"}
+    )
+    merged = sub.merge(le_jpn, on="year")
+    merged["gap"] = merged[f"LE_{country}"] - merged["LE_JPN"]
+    merged["country_code"] = country
+    gaps.append(merged[["year", "country_code", "gap"]])
 
 gaps_df = pd.concat(gaps, ignore_index=True)
 
+# Plot the gaps
 plt.figure()
 for c in ["CHN", "IND"]:
-sub = gaps_df[gaps_df["country_code"] == c]
-plt.plot(sub["year"], sub["gap"], label=c)
+    sub = gaps_df[gaps_df["country_code"] == c]
+    plt.plot(sub["year"], sub["gap"], label=c)
 plt.axhline(0, linestyle="--")
 plt.xlabel("Year")
 plt.ylabel("Life expectancy gap vs Japan (years)")
@@ -150,7 +162,24 @@ plt.show()
 
 gaps_df.head()
 
+```
+The gap plot makes the idea of convergence more explicit. For both China and India, the life-expectancy gap relative to Japan is negative throughout the period, meaning they always lag behind Japan. However, the lines trend upward toward zero, indicating that the gaps are shrinking over time. China’s gap narrows from just under −10 years in the early 1990s to roughly −6 years by 2023, while India’s gap shrinks from around −19 to approximately −12 or −13 years. The temporary spike downward around 2020, especially for India, suggests that the pandemic temporarily widened the gap before improvements resumed.
+
+The first few rows of the gap table help quantify the early period. In 1993–1997, China’s life expectancy is consistently about 9–10 years lower than Japan’s, with only small year-to-year changes. Over the full sample, the gradual movement of these gap values toward zero supports the conclusion that both countries are slowly converging toward Japan, but China is converging faster and remains much closer to Japan than India does by the end of the period.
+
 ## 5. Discussion
 
+Our results show clear and sustained improvements in population health for all three countries between 1993 and 2023, but from very different starting points. Japan consistently has the best outcomes: under-5 mortality is close to zero, adolescent fertility is low, and life expectancy remains above 80 years throughout. China occupies a middle position, with much better outcomes than India but still below Japan. India starts the period with high child mortality, high adolescent fertility, and the lowest life expectancy, although all three indicators improve substantially over time.
+
+In terms of convergence, the evidence is strongest for life expectancy and under-5 mortality. The life-expectancy gap relative to Japan shrinks steadily for both China and India, with China moving from roughly 10 years behind Japan to about 6 years by 2023, and India narrowing a much larger gap from nearly 20 to around 12–13 years. Descriptive statistics (and, in additional plots, not shown here) suggest similar catch-up in child mortality: both China and India reduce under-5 mortality by large margins, with the steepest proportional declines in India. Adolescent fertility also falls in all three countries, with China approaching Japan’s low levels and India remaining higher but clearly moving in the same direction. Taken together, these patterns suggest partial convergence in survival and reproductive health, with China much closer to Japan than India by the end of the period.
+
+The cross-country differences likely reflect broader economic and social trajectories. Japan entered the 1990s with a mature health system and demographic transition, so further gains are incremental rather than transformative. China experienced rapid economic growth, expansion of health insurance coverage, and major public-health campaigns, which plausibly support its strong catch-up in life expectancy and child survival. India also grew economically and expanded basic health services, but starting from a lower baseline and facing larger within-country inequalities, which may help explain why convergence is slower and gaps with Japan remain large, especially for adolescent fertility.
+
+There are several limitations to our analysis. First, we rely on three national-level indicators, which cannot capture regional, rural–urban, or socioeconomic inequalities within each country. Second, our methods are descriptive: we document trends and gaps but do not attempt to identify causal effects of specific policies or shocks. Third, the WDI series may contain measurement error or revisions, particularly in earlier years. Future work could extend this project by incorporating additional health outcomes, using subnational data, and applying more formal convergence tests or regression models that adjust for economic and demographic covariates.
+
+
 ## 6. Conclusion
+
+This project asked whether China and India are converging toward Japan in key population health indicators over the past three decades. Using WDI data on life expectancy at birth, under-5 mortality, and adolescent fertility from 1993 to 2023, we find strong evidence of improvement in all three countries and clear, though incomplete, convergence toward Japan. China has moved substantially closer to Japan, especially in life expectancy and child mortality, while India has also narrowed the gap but remains considerably behind on all indicators. Overall, the results highlight both the success of long-run health improvements in East and South Asia and the persistence of inequality in population health levels across countries, suggesting that continued investment in child health, women’s health, and broader social development will be essential for further convergence.
+
 
