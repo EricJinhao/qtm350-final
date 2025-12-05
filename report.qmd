@@ -1,0 +1,156 @@
+---
+title: "Population Health Convergence: China, India, and Japan"
+author: "Jinhao, Jonathan, Tiffany, Francisco"
+format:
+  html:
+    toc: true
+    toc-depth: 2
+    code-fold: true
+execute:
+  echo: true
+  warning: false
+  message: false
+jupyter: python3
+---
+
+## 1. Introduction
+
+Write your intro here. For now, a placeholder:
+
+We study whether China and India are converging toward Japan in key population health indicators between 1993 and 2023. We use World Bank World Development Indicators data on life expectancy at birth, under-5 mortality, and adolescent fertility for China, India, and Japan.
+
+## 2. Data
+
+### 2.1 Data source
+
+We use data from the World Development Indicators (WDI) compiled by the World Bank. Our analysis focuses on three countries in East and South Asia: China (CHN), India (IND), and Japan (JPN). For each country we extract annual data from 1993 to 2023, giving us a 31-year panel. The raw data were downloaded as CSV files from the WDI interface and then imported into a SQLite database for cleaning and analysis.
+
+### 2.2 Variables and units
+
+We focus on three indicators that capture different dimensions of population health:
+
+Life expectancy at birth, total (years) (SP.DYN.LE00.IN): the average number of years a newborn is expected to live if current mortality patterns continue.
+
+Under-5 mortality rate (per 1,000 live births) (SH.DYN.MORT): the probability that a child born in a given year will die before reaching age 5, expressed per 1,000 live births.
+
+Adolescent fertility rate (births per 1,000 women ages 15–19) (SP.ADO.TFRT): the annual number of births to women ages 15–19 per 1,000 women in that age group.
+
+Life expectancy increases when population health improves, while under-5 mortality and adolescent fertility are expected to decline as health and socioeconomic conditions improve. Together, these three indicators allow us to study convergence in both survival and reproductive health.
+
+
+### 2.3 Data processing and database structure
+
+```{mermaid}
+erDiagram
+    COUNTRIES {
+        string country_code PK
+        string country_name
+    }
+
+    INDICATORS {
+        string indicator_code PK
+        string indicator_name
+    }
+
+    WDI_VALUES {
+        string country_code FK
+        string indicator_code FK
+        int year
+        float value
+    }
+
+    COUNTRIES ||--o{ WDI_VALUES : has
+    INDICATORS ||--o{ WDI_VALUES : measured_as
+```
+
+### 2.4 Descriptive statistics
+
+```python
+
+import sqlite3
+import pandas as pd
+
+conn = sqlite3.connect("data/wdi.db")
+
+# if you created wdi_values earlier in a notebook, this just reads it;
+
+# otherwise you can also base this on wdi_pophealth_clean
+
+stats = pd.read_sql_query("""
+SELECT country_code, indicator_code,
+MIN(value) AS min_val,
+MAX(value) AS max_val,
+AVG(value) AS avg_val
+FROM wdi_values
+GROUP BY country_code, indicator_code;
+""", conn)
+
+conn.close()
+stats
+
+```
+
+## 3. Methods
+
+In this section we describe how we assess convergence. We first plot time-series trends for each indicator and country to visualise how life expectancy, under-5 mortality, and adolescent fertility evolve between 1993 and 2023. To study convergence more directly, we compute yearly gaps between China and Japan and between India and Japan for each indicator (for example, the difference in life expectancy). We then plot these gaps over time and fit simple linear regressions of the gap on year. A negative slope for the gap indicates that the difference between a country and Japan is shrinking over time, which we interpret as evidence of convergence.
+
+## 4. Results
+### 4.1 Time trends in indicators
+
+```python
+
+import matplotlib.pyplot as plt
+
+conn = sqlite3.connect("data/wdi.db")
+df = pd.read_sql_query("SELECT * FROM wdi_values;", conn)
+conn.close()
+
+# Example: life expectancy trends
+
+le = df[df["indicator_code"] == "SP.DYN.LE00.IN"]
+
+plt.figure()
+for c in ["CHN", "IND", "JPN"]:
+sub = le[le["country_code"] == c].sort_values("year")
+plt.plot(sub["year"], sub["value"], label=c)
+plt.xlabel("Year")
+plt.ylabel("Life expectancy at birth (years)")
+plt.title("Life expectancy over time")
+plt.legend()
+plt.show()
+
+```
+
+### 4.2 Convergence in gaps vs Japan
+
+# Example: gap in life expectancy vs Japan
+
+le_jpn = le[le["country_code"] == "JPN"][["year", "value"]].rename(columns={"value": "LE_JPN"})
+
+gaps = []
+for country in ["CHN", "IND"]:
+sub = le[le["country_code"] == country][["year", "value"]].rename(columns={"value": f"LE_{country}"})
+merged = sub.merge(le_jpn, on="year")
+merged["gap"] = merged[f"LE_{country}"] - merged["LE_JPN"]
+merged["country_code"] = country
+gaps.append(merged[["year", "country_code", "gap"]])
+
+gaps_df = pd.concat(gaps, ignore_index=True)
+
+plt.figure()
+for c in ["CHN", "IND"]:
+sub = gaps_df[gaps_df["country_code"] == c]
+plt.plot(sub["year"], sub["gap"], label=c)
+plt.axhline(0, linestyle="--")
+plt.xlabel("Year")
+plt.ylabel("Life expectancy gap vs Japan (years)")
+plt.title("Convergence in life expectancy relative to Japan")
+plt.legend()
+plt.show()
+
+gaps_df.head()
+
+## 5. Discussion
+
+## 6. Conclusion
+
