@@ -1,10 +1,11 @@
 ---
+---
 title: "Population Health Convergence: China, India, and Japan"
 author: "Jinhao, Jonathan, Tiffany, Francisco"
 format:
   html:
     toc: true
-    toc-depth: 2
+    toc-depth: 3      
     code-fold: true
 execute:
   echo: true
@@ -12,6 +13,7 @@ execute:
   message: false
 jupyter: python3
 ---
+
 
 ## 1. Introduction
 
@@ -94,8 +96,12 @@ Overall, the descriptive statistics already suggest large differences in populat
 
 In this section we describe how we assess convergence. We first plot time-series trends for each indicator and country to visualise how life expectancy, under-5 mortality, and adolescent fertility evolve between 1993 and 2023. To study convergence more directly, we compute yearly gaps between China and Japan and between India and Japan for each indicator (for example, the difference in life expectancy). We then plot these gaps over time and fit simple linear regressions of the gap on year. A negative slope for the gap indicates that the difference between a country and Japan is shrinking over time, which we interpret as evidence of convergence.
 
+In addition to plotting the raw time trends, we summarise convergence quantitatively by computing the average annual change in each indicator for each country. For example, we fit simple linear regressions of each indicator on year and interpret the slope as the average yearly improvement. For the convergence plots, we also fit linear trends to the gaps relative to Japan; a negative slope of the gap means the difference with Japan is shrinking over time.
+
 ## 4. Results
 ### 4.1 Time trends in indicators
+
+#### 4.1.1 Life expectancy at birth over time
 
 ```{python}
 import matplotlib.pyplot as plt
@@ -122,9 +128,49 @@ The life-expectancy trends confirm and extend the patterns from the summary stat
 
 Visually, both China and India move upward over time, but China’s trajectory is steeper and more stable. By the end of the period, China is within about 6–7 years of Japan, whereas India remains more than 10 years behind. This suggests that all three countries improved, but convergence toward Japan is much stronger for China than for India in terms of life expectancy.
 
+#### 4.1.2 Under-5 mortality over time
+
+```{python}
+# Under-5 mortality
+u5 = df[df["indicator_code"] == "SH.DYN.MORT"]
+
+plt.figure()
+for c in ["CHN", "IND", "JPN"]:
+    sub = u5[u5["country_code"] == c].sort_values("year")
+    plt.plot(sub["year"], sub["value"], label=c)
+plt.xlabel("Year")
+plt.ylabel("Under-5 mortality (per 1,000 live births)")
+plt.title("Under-5 mortality over time")
+plt.legend()
+plt.show()
+
+```
+
+Under-5 mortality declines sharply in all three countries, especially in India, which starts with very high child mortality and experiences the steepest drop. China begins closer to Japan and converges toward low single-digit rates by the end of the period, while India remains higher but shows the largest absolute improvement. This pattern suggests strong convergence in child survival, driven in part by rapid progress in India from a much worse baseline.
+
+
+#### 4.1.3 Adolescent fertility over time
+
+```{python}
+# Adolescent fertility
+af = df[df["indicator_code"] == "SP.ADO.TFRT"]
+
+plt.figure()
+for c in ["CHN", "IND", "JPN"]:
+    sub = af[af["country_code"] == c].sort_values("year")
+    plt.plot(sub["year"], sub["value"], label=c)
+plt.xlabel("Year")
+plt.ylabel("Adolescent fertility (births per 1,000 girls 15–19)")
+plt.title("Adolescent fertility over time")
+plt.legend()
+plt.show()
+```
+Adolescent fertility also declines in all three countries, but the gaps are more persistent than for child mortality. Japan maintains very low teenage fertility throughout. China starts at moderate levels and moves steadily toward Japan, while India begins with the highest adolescent fertility and, although it falls substantially, still ends the period far above Japan and China. Convergence is therefore only partial on this dimension, with India lagging behind.
+
+
 ### 4.2 Convergence in gaps vs Japan
 
-# Example: gap in life expectancy vs Japan
+### 4.2.1 Life expectancy gap vs Japan
 
 ```{python}
 # assumes 'le' was already defined in the previous chunk
@@ -166,6 +212,38 @@ gaps_df.head()
 The gap plot makes the idea of convergence more explicit. For both China and India, the life-expectancy gap relative to Japan is negative throughout the period, meaning they always lag behind Japan. However, the lines trend upward toward zero, indicating that the gaps are shrinking over time. China’s gap narrows from just under −10 years in the early 1990s to roughly −6 years by 2023, while India’s gap shrinks from around −19 to approximately −12 or −13 years. The temporary spike downward around 2020, especially for India, suggests that the pandemic temporarily widened the gap before improvements resumed.
 
 The first few rows of the gap table help quantify the early period. In 1993–1997, China’s life expectancy is consistently about 9–10 years lower than Japan’s, with only small year-to-year changes. Over the full sample, the gradual movement of these gap values toward zero supports the conclusion that both countries are slowly converging toward Japan, but China is converging faster and remains much closer to Japan than India does by the end of the period.
+
+### 4.3 Average yearly changes in indicators
+
+```{python}
+import numpy as np
+
+rows = []
+
+indicator_labels = {
+    "SP.DYN.LE00.IN": "Life expectancy at birth",
+    "SH.DYN.MORT": "Under-5 mortality",
+    "SP.ADO.TFRT": "Adolescent fertility"
+}
+
+for ind in ["SP.DYN.LE00.IN", "SH.DYN.MORT", "SP.ADO.TFRT"]:
+    for c in ["CHN", "IND", "JPN"]:
+        sub = df[(df["indicator_code"] == ind) &
+                 (df["country_code"] == c)].dropna().sort_values("year")
+        # simple linear fit: value ≈ slope * year + intercept
+        slope, intercept = np.polyfit(sub["year"], sub["value"], 1)
+        rows.append({
+            "country_code": c,
+            "indicator_code": ind,
+            "indicator_name": indicator_labels[ind],
+            "slope_per_year": slope
+        })
+
+slopes = pd.DataFrame(rows)
+slopes
+```
+The slope estimates summarise the average yearly change in each indicator. For life expectancy, all three countries have positive slopes, with the largest gains in India, followed by China and then Japan, which is already close to the frontier. For under-5 mortality and adolescent fertility, all slopes are negative, indicating declines; the largest absolute reductions occur in India, reflecting rapid catch-up from a much higher baseline. These estimates reinforce the visual impression that convergence is strongest in child mortality, moderate in life expectancy, and weakest in adolescent fertility.
+
 
 ## 5. Discussion
 

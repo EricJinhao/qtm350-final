@@ -71,9 +71,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="report_files/libs/bootstrap/bootstrap.min.js"></script>
 <link href="report_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="report_files/libs/bootstrap/bootstrap-d6a003b94517c951b2d65075d42fb01b.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
-<script src="report_files/libs/quarto-diagram/mermaid.min.js"></script>
-<script src="report_files/libs/quarto-diagram/mermaid-init.js"></script>
-<link href="report_files/libs/quarto-diagram/mermaid.css" rel="stylesheet">
 <script src="https://cdn.jsdelivr.net/npm/requirejs@2.3.6/require.min.js" integrity="sha384-c9c+LnTbwQ3aujuU7ULEPVvgLs+Fn6fJUvIGTsuu1ZcCf11fiEubah0ttpca4ntM sha384-6V1/AdqZRWk1KAlWbKBlGhN7VG4iE/yAZcO6NZPMF8od0vukrvr0tg4qY6NSrItx" crossorigin="anonymous"></script>
 
 <script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
@@ -88,16 +85,25 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <nav id="TOC" role="doc-toc" class="toc-active">
     <h2 id="toc-title">Table of contents</h2>
    
-  <ul class="collapse">
+  <ul>
   <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction">1. Introduction</a></li>
-  <li><a href="#data" id="toc-data" class="nav-link" data-scroll-target="#data">2. Data</a></li>
-  <li><a href="#methods" id="toc-methods" class="nav-link" data-scroll-target="#methods">3. Methods</a></li>
-  <li><a href="#results" id="toc-results" class="nav-link" data-scroll-target="#results">4. Results</a></li>
-  <li><a href="#example-gap-in-life-expectancy-vs-japan" id="toc-example-gap-in-life-expectancy-vs-japan" class="nav-link" data-scroll-target="#example-gap-in-life-expectancy-vs-japan">Example: gap in life expectancy vs Japan</a>
+  <li><a href="#data" id="toc-data" class="nav-link" data-scroll-target="#data">2. Data</a>
   <ul class="collapse">
+  <li><a href="#data-source" id="toc-data-source" class="nav-link" data-scroll-target="#data-source">2.1 Data source</a></li>
+  <li><a href="#variables-and-units" id="toc-variables-and-units" class="nav-link" data-scroll-target="#variables-and-units">2.2 Variables and units</a></li>
+  <li><a href="#data-processing-and-database-structure" id="toc-data-processing-and-database-structure" class="nav-link" data-scroll-target="#data-processing-and-database-structure">2.3 Data processing and database structure</a></li>
+  <li><a href="#descriptive-statistics" id="toc-descriptive-statistics" class="nav-link" data-scroll-target="#descriptive-statistics">2.4 Descriptive statistics</a></li>
+  </ul></li>
+  <li><a href="#methods" id="toc-methods" class="nav-link" data-scroll-target="#methods">3. Methods</a></li>
+  <li><a href="#results" id="toc-results" class="nav-link" data-scroll-target="#results">4. Results</a>
+  <ul class="collapse">
+  <li><a href="#time-trends-in-indicators" id="toc-time-trends-in-indicators" class="nav-link" data-scroll-target="#time-trends-in-indicators">4.1 Time trends in indicators</a></li>
+  <li><a href="#convergence-in-gaps-vs-japan" id="toc-convergence-in-gaps-vs-japan" class="nav-link" data-scroll-target="#convergence-in-gaps-vs-japan">4.2 Convergence in gaps vs Japan</a></li>
+  <li><a href="#life-expectancy-gap-vs-japan" id="toc-life-expectancy-gap-vs-japan" class="nav-link" data-scroll-target="#life-expectancy-gap-vs-japan">4.2.1 Life expectancy gap vs Japan</a></li>
+  <li><a href="#average-yearly-changes-in-indicators" id="toc-average-yearly-changes-in-indicators" class="nav-link" data-scroll-target="#average-yearly-changes-in-indicators">4.3 Average yearly changes in indicators</a></li>
+  </ul></li>
   <li><a href="#discussion" id="toc-discussion" class="nav-link" data-scroll-target="#discussion">5. Discussion</a></li>
   <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion">6. Conclusion</a></li>
-  </ul></li>
   </ul>
 </nav>
 </div>
@@ -128,6 +134,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
+<p>title: “Population Health Convergence: China, India, and Japan” author: “Jinhao, Jonathan, Tiffany, Francisco” format: html: toc: true toc-depth: 3<br>
+code-fold: true execute: echo: true warning: false message: false jupyter: python3 —</p>
 <section id="introduction" class="level2">
 <h2 class="anchored" data-anchor-id="introduction">1. Introduction</h2>
 <p>We study whether China and India are converging toward Japan in key population health indicators between 1993 and 2023. We use World Bank World Development Indicators data on life expectancy at birth, under-5 mortality, and adolescent fertility for China, India, and Japan.</p>
@@ -148,35 +156,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="data-processing-and-database-structure" class="level3">
 <h3 class="anchored" data-anchor-id="data-processing-and-database-structure">2.3 Data processing and database structure</h3>
-<div class="cell" data-layout-align="default">
-<details class="code-fold">
-<summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>erDiagram</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>    COUNTRIES {</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>        string country_code PK</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>        string country_name</span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>    }</span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>    INDICATORS {</span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>        string indicator_code PK</span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>        string indicator_name</span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>    }</span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>    WDI_VALUES {</span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>        string country_code FK</span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>        string indicator_code FK</span>
-<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>        int year</span>
-<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>        float value</span>
-<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>    }</span>
-<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>    COUNTRIES ||--o{ WDI_VALUES : has</span>
-<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>    INDICATORS ||--o{ WDI_VALUES : measured_as</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</details>
-<div class="cell-output-display">
-<div>
-<p></p><figure class="figure"><p></p>
-<div>
-<pre class="mermaid mermaid-js">erDiagram
+<pre class="{mermaid}"><code>erDiagram
     COUNTRIES {
         string country_code PK
         string country_name
@@ -195,17 +175,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     }
 
     COUNTRIES ||--o{ WDI_VALUES : has
-    INDICATORS ||--o{ WDI_VALUES : measured_as
-</pre>
-</div>
-<p></p></figure><p></p>
-</div>
-</div>
-</div>
+    INDICATORS ||--o{ WDI_VALUES : measured_as</code></pre>
 </section>
 <section id="descriptive-statistics" class="level3">
 <h3 class="anchored" data-anchor-id="descriptive-statistics">2.4 Descriptive statistics</h3>
-<div id="c8c026ea" class="cell" data-execution_count="1">
+<div id="006569d7" class="cell" data-execution_count="1">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sqlite3</span>
@@ -229,7 +203,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>conn.close()</span>
 <span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a>stats</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
-<div class="cell-output cell-output-display" data-execution_count="10">
+<div class="cell-output cell-output-display" data-execution_count="19">
 <div>
 
 
@@ -329,12 +303,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="methods" class="level2">
 <h2 class="anchored" data-anchor-id="methods">3. Methods</h2>
 <p>In this section we describe how we assess convergence. We first plot time-series trends for each indicator and country to visualise how life expectancy, under-5 mortality, and adolescent fertility evolve between 1993 and 2023. To study convergence more directly, we compute yearly gaps between China and Japan and between India and Japan for each indicator (for example, the difference in life expectancy). We then plot these gaps over time and fit simple linear regressions of the gap on year. A negative slope for the gap indicates that the difference between a country and Japan is shrinking over time, which we interpret as evidence of convergence.</p>
+<p>In addition to plotting the raw time trends, we summarise convergence quantitatively by computing the average annual change in each indicator for each country. For example, we fit simple linear regressions of each indicator on year and interpret the slope as the average yearly improvement. For the convergence plots, we also fit linear trends to the gaps relative to Japan; a negative slope of the gap means the difference with Japan is shrinking over time.</p>
 </section>
 <section id="results" class="level2">
 <h2 class="anchored" data-anchor-id="results">4. Results</h2>
 <section id="time-trends-in-indicators" class="level3">
 <h3 class="anchored" data-anchor-id="time-trends-in-indicators">4.1 Time trends in indicators</h3>
-<div id="bf23b0f4" class="cell" data-execution_count="2">
+<section id="life-expectancy-at-birth-over-time" class="level4">
+<h4 class="anchored" data-anchor-id="life-expectancy-at-birth-over-time">4.1.1 Life expectancy at birth over time</h4>
+<div id="bb37666b" class="cell" data-execution_count="2">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
@@ -366,58 +343,114 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>The life-expectancy trends confirm and extend the patterns from the summary statistics. Japan starts the period with the highest life expectancy (around 79–80 years) and continues to increase steadily to about 84–85 years, with only a small dip around 2020 that likely reflects the COVID-19 pandemic. China begins the period roughly 10 years behind Japan but shows a strong and almost linear increase from about 69 to 78 years. India has the lowest life expectancy throughout, starting near 60 years in 1993 and rising to the low 70s by 2023, with a noticeable drop around 2020.</p>
 <p>Visually, both China and India move upward over time, but China’s trajectory is steeper and more stable. By the end of the period, China is within about 6–7 years of Japan, whereas India remains more than 10 years behind. This suggests that all three countries improved, but convergence toward Japan is much stronger for China than for India in terms of life expectancy.</p>
 </section>
-<section id="convergence-in-gaps-vs-japan" class="level3">
-<h3 class="anchored" data-anchor-id="convergence-in-gaps-vs-japan">4.2 Convergence in gaps vs Japan</h3>
-</section>
-</section>
-<section id="example-gap-in-life-expectancy-vs-japan" class="level1">
-<h1>Example: gap in life expectancy vs Japan</h1>
-<div id="e234b99b" class="cell" data-execution_count="3">
+<section id="under-5-mortality-over-time" class="level4">
+<h4 class="anchored" data-anchor-id="under-5-mortality-over-time">4.1.2 Under-5 mortality over time</h4>
+<div id="e405ab81" class="cell" data-execution_count="3">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># assumes 'le' was already defined in the previous chunk</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="co"># le = df[df["indicator_code"] == "SP.DYN.LE00.IN"]</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Under-5 mortality</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>u5 <span class="op">=</span> df[df[<span class="st">"indicator_code"</span>] <span class="op">==</span> <span class="st">"SH.DYN.MORT"</span>]</span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Japan series</span></span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>le_jpn <span class="op">=</span> le[le[<span class="st">"country_code"</span>] <span class="op">==</span> <span class="st">"JPN"</span>][[<span class="st">"year"</span>, <span class="st">"value"</span>]].rename(</span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>    columns<span class="op">=</span>{<span class="st">"value"</span>: <span class="st">"LE_JPN"</span>}</span>
-<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Build gaps for CHN and IND vs JPN</span></span>
-<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>gaps <span class="op">=</span> []</span>
-<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> country <span class="kw">in</span> [<span class="st">"CHN"</span>, <span class="st">"IND"</span>]:</span>
-<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>    sub <span class="op">=</span> le[le[<span class="st">"country_code"</span>] <span class="op">==</span> country][[<span class="st">"year"</span>, <span class="st">"value"</span>]].rename(</span>
-<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>        columns<span class="op">=</span>{<span class="st">"value"</span>: <span class="ss">f"LE_</span><span class="sc">{</span>country<span class="sc">}</span><span class="ss">"</span>}</span>
-<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>    )</span>
-<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>    merged <span class="op">=</span> sub.merge(le_jpn, on<span class="op">=</span><span class="st">"year"</span>)</span>
-<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a>    merged[<span class="st">"gap"</span>] <span class="op">=</span> merged[<span class="ss">f"LE_</span><span class="sc">{</span>country<span class="sc">}</span><span class="ss">"</span>] <span class="op">-</span> merged[<span class="st">"LE_JPN"</span>]</span>
-<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a>    merged[<span class="st">"country_code"</span>] <span class="op">=</span> country</span>
-<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a>    gaps.append(merged[[<span class="st">"year"</span>, <span class="st">"country_code"</span>, <span class="st">"gap"</span>]])</span>
-<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a>gaps_df <span class="op">=</span> pd.concat(gaps, ignore_index<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot the gaps</span></span>
-<span id="cb4-23"><a href="#cb4-23" aria-hidden="true" tabindex="-1"></a>plt.figure()</span>
-<span id="cb4-24"><a href="#cb4-24" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> c <span class="kw">in</span> [<span class="st">"CHN"</span>, <span class="st">"IND"</span>]:</span>
-<span id="cb4-25"><a href="#cb4-25" aria-hidden="true" tabindex="-1"></a>    sub <span class="op">=</span> gaps_df[gaps_df[<span class="st">"country_code"</span>] <span class="op">==</span> c]</span>
-<span id="cb4-26"><a href="#cb4-26" aria-hidden="true" tabindex="-1"></a>    plt.plot(sub[<span class="st">"year"</span>], sub[<span class="st">"gap"</span>], label<span class="op">=</span>c)</span>
-<span id="cb4-27"><a href="#cb4-27" aria-hidden="true" tabindex="-1"></a>plt.axhline(<span class="dv">0</span>, linestyle<span class="op">=</span><span class="st">"--"</span>)</span>
-<span id="cb4-28"><a href="#cb4-28" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">"Year"</span>)</span>
-<span id="cb4-29"><a href="#cb4-29" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">"Life expectancy gap vs Japan (years)"</span>)</span>
-<span id="cb4-30"><a href="#cb4-30" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">"Convergence in life expectancy relative to Japan"</span>)</span>
-<span id="cb4-31"><a href="#cb4-31" aria-hidden="true" tabindex="-1"></a>plt.legend()</span>
-<span id="cb4-32"><a href="#cb4-32" aria-hidden="true" tabindex="-1"></a>plt.show()</span>
-<span id="cb4-33"><a href="#cb4-33" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-34"><a href="#cb4-34" aria-hidden="true" tabindex="-1"></a>gaps_df.head()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>plt.figure()</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> c <span class="kw">in</span> [<span class="st">"CHN"</span>, <span class="st">"IND"</span>, <span class="st">"JPN"</span>]:</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>    sub <span class="op">=</span> u5[u5[<span class="st">"country_code"</span>] <span class="op">==</span> c].sort_values(<span class="st">"year"</span>)</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>    plt.plot(sub[<span class="st">"year"</span>], sub[<span class="st">"value"</span>], label<span class="op">=</span>c)</span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">"Year"</span>)</span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">"Under-5 mortality (per 1,000 live births)"</span>)</span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">"Under-5 mortality over time"</span>)</span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>plt.legend()</span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="report_files/figure-html/cell-4-output-1.png" width="609" height="449" class="figure-img"></p>
+<p><img src="report_files/figure-html/cell-4-output-1.png" width="593" height="449" class="figure-img"></p>
 </figure>
 </div>
 </div>
-<div class="cell-output cell-output-display" data-execution_count="12">
+</div>
+<p>Under-5 mortality declines sharply in all three countries, especially in India, which starts with very high child mortality and experiences the steepest drop. China begins closer to Japan and converges toward low single-digit rates by the end of the period, while India remains higher but shows the largest absolute improvement. This pattern suggests strong convergence in child survival, driven in part by rapid progress in India from a much worse baseline.</p>
+</section>
+<section id="adolescent-fertility-over-time" class="level4">
+<h4 class="anchored" data-anchor-id="adolescent-fertility-over-time">4.1.3 Adolescent fertility over time</h4>
+<div id="b8879969" class="cell" data-execution_count="4">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Adolescent fertility</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>af <span class="op">=</span> df[df[<span class="st">"indicator_code"</span>] <span class="op">==</span> <span class="st">"SP.ADO.TFRT"</span>]</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>plt.figure()</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> c <span class="kw">in</span> [<span class="st">"CHN"</span>, <span class="st">"IND"</span>, <span class="st">"JPN"</span>]:</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>    sub <span class="op">=</span> af[af[<span class="st">"country_code"</span>] <span class="op">==</span> c].sort_values(<span class="st">"year"</span>)</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>    plt.plot(sub[<span class="st">"year"</span>], sub[<span class="st">"value"</span>], label<span class="op">=</span>c)</span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">"Year"</span>)</span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">"Adolescent fertility (births per 1,000 girls 15–19)"</span>)</span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">"Adolescent fertility over time"</span>)</span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>plt.legend()</span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="report_files/figure-html/cell-5-output-1.png" width="593" height="449" class="figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Adolescent fertility also declines in all three countries, but the gaps are more persistent than for child mortality. Japan maintains very low teenage fertility throughout. China starts at moderate levels and moves steadily toward Japan, while India begins with the highest adolescent fertility and, although it falls substantially, still ends the period far above Japan and China. Convergence is therefore only partial on this dimension, with India lagging behind.</p>
+</section>
+</section>
+<section id="convergence-in-gaps-vs-japan" class="level3">
+<h3 class="anchored" data-anchor-id="convergence-in-gaps-vs-japan">4.2 Convergence in gaps vs Japan</h3>
+</section>
+<section id="life-expectancy-gap-vs-japan" class="level3">
+<h3 class="anchored" data-anchor-id="life-expectancy-gap-vs-japan">4.2.1 Life expectancy gap vs Japan</h3>
+<div id="d9d0edf1" class="cell" data-execution_count="5">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># assumes 'le' was already defined in the previous chunk</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="co"># le = df[df["indicator_code"] == "SP.DYN.LE00.IN"]</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Japan series</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>le_jpn <span class="op">=</span> le[le[<span class="st">"country_code"</span>] <span class="op">==</span> <span class="st">"JPN"</span>][[<span class="st">"year"</span>, <span class="st">"value"</span>]].rename(</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>    columns<span class="op">=</span>{<span class="st">"value"</span>: <span class="st">"LE_JPN"</span>}</span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Build gaps for CHN and IND vs JPN</span></span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>gaps <span class="op">=</span> []</span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> country <span class="kw">in</span> [<span class="st">"CHN"</span>, <span class="st">"IND"</span>]:</span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>    sub <span class="op">=</span> le[le[<span class="st">"country_code"</span>] <span class="op">==</span> country][[<span class="st">"year"</span>, <span class="st">"value"</span>]].rename(</span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a>        columns<span class="op">=</span>{<span class="st">"value"</span>: <span class="ss">f"LE_</span><span class="sc">{</span>country<span class="sc">}</span><span class="ss">"</span>}</span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a>    merged <span class="op">=</span> sub.merge(le_jpn, on<span class="op">=</span><span class="st">"year"</span>)</span>
+<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a>    merged[<span class="st">"gap"</span>] <span class="op">=</span> merged[<span class="ss">f"LE_</span><span class="sc">{</span>country<span class="sc">}</span><span class="ss">"</span>] <span class="op">-</span> merged[<span class="st">"LE_JPN"</span>]</span>
+<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a>    merged[<span class="st">"country_code"</span>] <span class="op">=</span> country</span>
+<span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a>    gaps.append(merged[[<span class="st">"year"</span>, <span class="st">"country_code"</span>, <span class="st">"gap"</span>]])</span>
+<span id="cb6-19"><a href="#cb6-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-20"><a href="#cb6-20" aria-hidden="true" tabindex="-1"></a>gaps_df <span class="op">=</span> pd.concat(gaps, ignore_index<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb6-21"><a href="#cb6-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-22"><a href="#cb6-22" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot the gaps</span></span>
+<span id="cb6-23"><a href="#cb6-23" aria-hidden="true" tabindex="-1"></a>plt.figure()</span>
+<span id="cb6-24"><a href="#cb6-24" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> c <span class="kw">in</span> [<span class="st">"CHN"</span>, <span class="st">"IND"</span>]:</span>
+<span id="cb6-25"><a href="#cb6-25" aria-hidden="true" tabindex="-1"></a>    sub <span class="op">=</span> gaps_df[gaps_df[<span class="st">"country_code"</span>] <span class="op">==</span> c]</span>
+<span id="cb6-26"><a href="#cb6-26" aria-hidden="true" tabindex="-1"></a>    plt.plot(sub[<span class="st">"year"</span>], sub[<span class="st">"gap"</span>], label<span class="op">=</span>c)</span>
+<span id="cb6-27"><a href="#cb6-27" aria-hidden="true" tabindex="-1"></a>plt.axhline(<span class="dv">0</span>, linestyle<span class="op">=</span><span class="st">"--"</span>)</span>
+<span id="cb6-28"><a href="#cb6-28" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">"Year"</span>)</span>
+<span id="cb6-29"><a href="#cb6-29" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">"Life expectancy gap vs Japan (years)"</span>)</span>
+<span id="cb6-30"><a href="#cb6-30" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">"Convergence in life expectancy relative to Japan"</span>)</span>
+<span id="cb6-31"><a href="#cb6-31" aria-hidden="true" tabindex="-1"></a>plt.legend()</span>
+<span id="cb6-32"><a href="#cb6-32" aria-hidden="true" tabindex="-1"></a>plt.show()</span>
+<span id="cb6-33"><a href="#cb6-33" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-34"><a href="#cb6-34" aria-hidden="true" tabindex="-1"></a>gaps_df.head()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="report_files/figure-html/cell-6-output-1.png" width="609" height="449" class="figure-img"></p>
+</figure>
+</div>
+</div>
+<div class="cell-output cell-output-display" data-execution_count="23">
 <div>
 
 
@@ -469,6 +502,125 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <p>The gap plot makes the idea of convergence more explicit. For both China and India, the life-expectancy gap relative to Japan is negative throughout the period, meaning they always lag behind Japan. However, the lines trend upward toward zero, indicating that the gaps are shrinking over time. China’s gap narrows from just under −10 years in the early 1990s to roughly −6 years by 2023, while India’s gap shrinks from around −19 to approximately −12 or −13 years. The temporary spike downward around 2020, especially for India, suggests that the pandemic temporarily widened the gap before improvements resumed.</p>
 <p>The first few rows of the gap table help quantify the early period. In 1993–1997, China’s life expectancy is consistently about 9–10 years lower than Japan’s, with only small year-to-year changes. Over the full sample, the gradual movement of these gap values toward zero supports the conclusion that both countries are slowly converging toward Japan, but China is converging faster and remains much closer to Japan than India does by the end of the period.</p>
+</section>
+<section id="average-yearly-changes-in-indicators" class="level3">
+<h3 class="anchored" data-anchor-id="average-yearly-changes-in-indicators">4.3 Average yearly changes in indicators</h3>
+<div id="b879a53b" class="cell" data-execution_count="6">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>rows <span class="op">=</span> []</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>indicator_labels <span class="op">=</span> {</span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>    <span class="st">"SP.DYN.LE00.IN"</span>: <span class="st">"Life expectancy at birth"</span>,</span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>    <span class="st">"SH.DYN.MORT"</span>: <span class="st">"Under-5 mortality"</span>,</span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>    <span class="st">"SP.ADO.TFRT"</span>: <span class="st">"Adolescent fertility"</span></span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> ind <span class="kw">in</span> [<span class="st">"SP.DYN.LE00.IN"</span>, <span class="st">"SH.DYN.MORT"</span>, <span class="st">"SP.ADO.TFRT"</span>]:</span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> c <span class="kw">in</span> [<span class="st">"CHN"</span>, <span class="st">"IND"</span>, <span class="st">"JPN"</span>]:</span>
+<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a>        sub <span class="op">=</span> df[(df[<span class="st">"indicator_code"</span>] <span class="op">==</span> ind) <span class="op">&amp;</span></span>
+<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a>                 (df[<span class="st">"country_code"</span>] <span class="op">==</span> c)].dropna().sort_values(<span class="st">"year"</span>)</span>
+<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a>        <span class="co"># simple linear fit: value ≈ slope * year + intercept</span></span>
+<span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a>        slope, intercept <span class="op">=</span> np.polyfit(sub[<span class="st">"year"</span>], sub[<span class="st">"value"</span>], <span class="dv">1</span>)</span>
+<span id="cb7-17"><a href="#cb7-17" aria-hidden="true" tabindex="-1"></a>        rows.append({</span>
+<span id="cb7-18"><a href="#cb7-18" aria-hidden="true" tabindex="-1"></a>            <span class="st">"country_code"</span>: c,</span>
+<span id="cb7-19"><a href="#cb7-19" aria-hidden="true" tabindex="-1"></a>            <span class="st">"indicator_code"</span>: ind,</span>
+<span id="cb7-20"><a href="#cb7-20" aria-hidden="true" tabindex="-1"></a>            <span class="st">"indicator_name"</span>: indicator_labels[ind],</span>
+<span id="cb7-21"><a href="#cb7-21" aria-hidden="true" tabindex="-1"></a>            <span class="st">"slope_per_year"</span>: slope</span>
+<span id="cb7-22"><a href="#cb7-22" aria-hidden="true" tabindex="-1"></a>        })</span>
+<span id="cb7-23"><a href="#cb7-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-24"><a href="#cb7-24" aria-hidden="true" tabindex="-1"></a>slopes <span class="op">=</span> pd.DataFrame(rows)</span>
+<span id="cb7-25"><a href="#cb7-25" aria-hidden="true" tabindex="-1"></a>slopes</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-display" data-execution_count="24">
+<div>
+
+
+<table class="dataframe caption-top table table-sm table-striped small" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">country_code</th>
+<th data-quarto-table-cell-role="th">indicator_code</th>
+<th data-quarto-table-cell-role="th">indicator_name</th>
+<th data-quarto-table-cell-role="th">slope_per_year</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">0</th>
+<td>CHN</td>
+<td>SP.DYN.LE00.IN</td>
+<td>Life expectancy at birth</td>
+<td>0.297968</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">1</th>
+<td>IND</td>
+<td>SP.DYN.LE00.IN</td>
+<td>Life expectancy at birth</td>
+<td>0.393853</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">2</th>
+<td>JPN</td>
+<td>SP.DYN.LE00.IN</td>
+<td>Life expectancy at birth</td>
+<td>0.172199</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">3</th>
+<td>CHN</td>
+<td>SH.DYN.MORT</td>
+<td>Under-5 mortality</td>
+<td>-1.578669</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">4</th>
+<td>IND</td>
+<td>SH.DYN.MORT</td>
+<td>Under-5 mortality</td>
+<td>-3.059919</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">5</th>
+<td>JPN</td>
+<td>SH.DYN.MORT</td>
+<td>Under-5 mortality</td>
+<td>-0.120524</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">6</th>
+<td>CHN</td>
+<td>SP.ADO.TFRT</td>
+<td>Adolescent fertility</td>
+<td>0.028329</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">7</th>
+<td>IND</td>
+<td>SP.ADO.TFRT</td>
+<td>Adolescent fertility</td>
+<td>-4.886938</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">8</th>
+<td>JPN</td>
+<td>SP.ADO.TFRT</td>
+<td>Adolescent fertility</td>
+<td>-0.089134</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<p>The slope estimates summarise the average yearly change in each indicator. For life expectancy, all three countries have positive slopes, with the largest gains in India, followed by China and then Japan, which is already close to the frontier. For under-5 mortality and adolescent fertility, all slopes are negative, indicating declines; the largest absolute reductions occur in India, reflecting rapid catch-up from a much higher baseline. These estimates reinforce the visual impression that convergence is strongest in child mortality, moderate in life expectancy, and weakest in adolescent fertility.</p>
+</section>
+</section>
 <section id="discussion" class="level2">
 <h2 class="anchored" data-anchor-id="discussion">5. Discussion</h2>
 <p>Our results show clear and sustained improvements in population health for all three countries between 1993 and 2023, but from very different starting points. Japan consistently has the best outcomes: under-5 mortality is close to zero, adolescent fertility is low, and life expectancy remains above 80 years throughout. China occupies a middle position, with much better outcomes than India but still below Japan. India starts the period with high child mortality, high adolescent fertility, and the lowest life expectancy, although all three indicators improve substantially over time.</p>
@@ -479,7 +631,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="conclusion" class="level2">
 <h2 class="anchored" data-anchor-id="conclusion">6. Conclusion</h2>
 <p>This project asked whether China and India are converging toward Japan in key population health indicators over the past three decades. Using WDI data on life expectancy at birth, under-5 mortality, and adolescent fertility from 1993 to 2023, we find strong evidence of improvement in all three countries and clear, though incomplete, convergence toward Japan. China has moved substantially closer to Japan, especially in life expectancy and child mortality, while India has also narrowed the gap but remains considerably behind on all indicators. Overall, the results highlight both the success of long-run health improvements in East and South Asia and the persistence of inequality in population health levels across countries, suggesting that continued investment in child health, women’s health, and broader social development will be essential for further convergence.</p>
-</section>
 </section>
 
 </main>
