@@ -21,7 +21,7 @@ This repository holds the analysis for the QTM 350 final project on whether Chin
    ```
    `sqlite3` ships with the Python standard library. -->
 
-## Reproducing the Data Pipeline
+## How to run the code
 Run each script from the project root so relative paths resolve correctly.
 
 1. **Create the SQLite database**
