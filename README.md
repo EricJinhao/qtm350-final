@@ -57,3 +57,7 @@ quarto render report.qmd
 - `figures/` contains exported visualizations if you need static copies for slides or other collateral.
 
 Following the steps above from a clean clone will recreate the database, cleaned dataset, descriptive statistics, and the full narrative report. Feel free to extend the pipeline by adding new scripts under `scripts/` and referencing them in this README as needed. -->
+
+## View Online
+- [HTML Report](https://EricJinhao.github.io/qtm350-final/report.html)
+- [PDF Report](report.pdf)
