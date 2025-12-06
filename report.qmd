@@ -4,8 +4,9 @@ author: "Jinhao, Jonathan, Tiffany, Francisco"
 format:
   html:
     toc: true
-    toc-depth: 3      
+    toc-depth: 3
     code-fold: true
+  pdf: default
 execute:
   echo: true
   warning: false
