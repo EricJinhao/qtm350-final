@@ -18,7 +18,8 @@ jupyter: python3
 
 We study whether China and India are converging toward Japan in key population health indicators between 1993 and 2023. We use World Bank World Development Indicators data on life expectancy at birth, under-5 mortality, and adolescent fertility for China, India, and Japan.
 
-## 2. Data
+## 2. Data description
+
 
 ### 2.1 Data source
 
@@ -72,10 +73,6 @@ import pandas as pd
 
 conn = sqlite3.connect("data/wdi.db")
 
-# if you created wdi_values earlier in a notebook, this just reads it;
-
-# otherwise you can also base this on wdi_pophealth_clean
-
 stats = pd.read_sql_query("""
 SELECT country_code, indicator_code,
 MIN(value) AS min_val,
@@ -92,7 +89,7 @@ stats
 Overall, the descriptive statistics already suggest large differences in population health across the three countries. Japan has the best outcomes on all three indicators: its average under-5 mortality rate is only about 3–4 deaths per 1,000 live births and adolescent fertility averages around 4 births per 1,000 girls, while life expectancy averages more than 82 years. India sits at the other extreme, with average under-5 mortality around 67 deaths per 1,000 and adolescent fertility above 60, and life expectancy roughly 66 years. China is between the two, but clearly closer to Japan than to India: under-5 mortality and adolescent fertility are much lower than in India, and average life expectancy is about 75 years. The wide gaps between minimum and maximum values, especially for India, indicate that all three countries experienced substantial improvements over the 1993–2023 period.
 
 
-## 3. Methods
+## 3. Data analysis(Methods)
 
 In this section we describe how we assess convergence. First, we reshape the World Development Indicators data into a long panel and store it in a SQLite database with one table (wdi_values) containing country, indicator, year, and value. We use SQL queries to compute basic descriptive statistics by country and indicator. Then we plot time-series trends for each indicator and country to visualise how life expectancy, under-5 mortality, and adolescent fertility evolve between 1993 and 2023.
 
