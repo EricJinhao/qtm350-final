@@ -1,5 +1,4 @@
 ---
----
 title: "Population Health Convergence: China, India, and Japan"
 author: "Jinhao, Jonathan, Tiffany, Francisco"
 format:
@@ -61,6 +60,7 @@ erDiagram
 
     COUNTRIES ||--o{ WDI_VALUES : has
     INDICATORS ||--o{ WDI_VALUES : measured_as
+
 ```
 
 ### 2.4 Descriptive statistics
