@@ -1,6 +1,10 @@
 ---
 title: "Population Health Convergence: China, India, and Japan"
-author: "Jinhao, Jonathan, Tiffany, Francisco"
+author: |
+  Jinhao Tian (Emory ID: 2562165)
+  Jonathan Wang (Emory ID: 2549119)
+  Tiffany Yang (Emory ID: 2551053)
+  Francisco (Emory ID: 2549030)
 format:
   html:
     toc: true
