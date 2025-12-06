@@ -36,7 +36,7 @@ Run each script from the project root so relative paths resolve correctly.
    ```
    - Melts the wide WDI extract into a long panel, keeps the 1993–2023 observations for China, India, and Japan for the three population-health indicators, and saves the cleaned table to both SQLite (`wdi_pophealth_clean`, `wdi_values`) and `data/clean/wdi_pophealth_clean.csv`.
 
-3. **Generate descriptive statistics (optional sanity check)**
+3. **Generate descriptive statistics**
    ```bash
    python scripts/03_descriptive_stats.py
    ```
